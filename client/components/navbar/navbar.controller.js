@@ -2,10 +2,16 @@
 
 class NavbarController {
   //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  }];
+  menu = [
+      {
+        'title': 'Movie Database',
+        'link': '/movie'
+      },
+      {
+        'title': 'Compare watchlists',
+        'link': '/watchlist'
+      }
+  ];
 
   isCollapsed = true;
   //end-non-standard

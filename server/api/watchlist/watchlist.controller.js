@@ -61,9 +61,10 @@ function handleError(res, statusCode) {
 
 // Gets a list of Watchlists
 export function index(req, res) {
-  Watchlist.findAsync()
-    .then(respondWithResult(res))
-    .catch(handleError(res));
+  Watchlist.find().populate('movies').exec(function (err, watchlists) {
+    if(err) { return handleError(res, err); }
+    return res.status(200).json(watchlists);
+  });
 }
 
 // Gets a single Watchlist from the DB
